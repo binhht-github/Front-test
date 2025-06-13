@@ -24,7 +24,6 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, setSearchTerm }) => {
         }
     }, [searchTerm]);
 
-    // ✅ Focus vào ô tìm kiếm khi pathname là /fonts
     useEffect(() => {
         if (location.pathname === "/fonts") {
             inputRef.current?.focus();
@@ -34,11 +33,6 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, setSearchTerm }) => {
     return (
         <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0 px-4 py-2">
             <div className="flex items-center space-x-2 cursor-pointer" onClick={() => { navigate("/fonts"); }}>
-                <img
-                    alt="Google Fonts logo"
-                    className="w-6 h-6"
-                    src="https://storage.googleapis.com/a1aa/image/42e5c8d4-6b59-4994-d2cd-b45f2bc8956b.jpg"
-                />
                 <span className="font-semibold text-lg select-none">
                     Google Fonts
                 </span>

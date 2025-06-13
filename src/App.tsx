@@ -8,6 +8,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<GoogleFontPage />} />
           <Route path="/fonts" element={<GoogleFontPage />} />
           <Route path="/fonts/:name" element={<DetailsFont />} />
           <Route path="/employee" element={<EmployeePage />} />

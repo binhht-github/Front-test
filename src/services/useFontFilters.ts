@@ -1,4 +1,4 @@
-// hooks/useFontFilters.ts
+
 import { useSearchParams } from "react-router-dom";
 
 export const useFontFilters = () => {

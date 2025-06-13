@@ -11,7 +11,7 @@ import { fetchFonts } from "@/services/fonts.api";
 import { useQuery } from "@tanstack/react-query";
 
 export const DetailsFont = () => {
-    const { name } = useParams(); // ex: "ABeeZee"
+    const { name } = useParams();
     const [searchParams, setSearchParams] = useSearchParams();
 
 
@@ -32,8 +32,6 @@ export const DetailsFont = () => {
         }
     }, [searchParams, name]);
 
-
-    // Đồng bộ lại URL khi thay đổi text hoặc size
     useEffect(() => {
         const params = new URLSearchParams(searchParams);
         params.set("text", previewText);
@@ -41,7 +39,6 @@ export const DetailsFont = () => {
         setSearchParams(params, { replace: true });
     }, [previewText, fontSize]);
 
-    // Load font
     useEffect(() => {
         if (!name) return;
         const fontUrl = `https://fonts.googleapis.com/css2?family=${name.replace(/ /g, "+")}&display=swap`;
@@ -136,7 +133,6 @@ export const DetailsFont = () => {
                                 type="text"
                                 value={previewText}
                                 onChange={handleChangePreview}
-                                // placeholder="Type here to preview text"
                                 className="peer w-full rounded-full border py-3 px-6"
                             />
                             <label className="absolute left-6 -top-5 text-xs text-gray-600   transition-all">

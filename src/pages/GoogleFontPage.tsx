@@ -16,20 +16,17 @@ export const GoogleFontPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const debounceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-    // Init from URL params
     const initialText = searchParams.get("text") || "";
     const initialSize = Number(searchParams.get("size")) || 40;
     const initialSearchTerm = searchParams.get("search") || "";
     const initialSubset = searchParams.get("subset") || "";
 
-    // State
     const [previewText, setPreviewText] = useState<string>(initialText);
     const [textSize, setTextSize] = useState<number>(initialSize);
     const [searchTerm, setSearchTerm] = useState<string>(initialSearchTerm);
     const [showOnlyFavorites, setShowOnlyFavorites] = useState<boolean>(false);
     const [selectedSubset, setSelectedSubset] = useState<string>(initialSubset);
 
-    // URL param handler
     const updateSearchParam = (key: string, value: string) => {
         if (key === "text") setPreviewText(value);
         if (key === "size") setTextSize(Number(value));
@@ -68,7 +65,6 @@ export const GoogleFontPage = () => {
     if (isError || !fonts || !Array.isArray(fonts))
         return <p className="p-6 text-red-500">Error loading fonts.</p>;
 
-    // Filter fonts
     const filteredFonts = fonts.filter((font) => {
         const matchesSearch = font.family.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesFavorite = showOnlyFavorites ? isFontFavorite(font.family) : true;

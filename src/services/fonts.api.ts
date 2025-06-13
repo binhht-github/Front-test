@@ -1,13 +1,4 @@
-// import axios from "axios";
 
-// const API_KEY = "AIzaSyBVytj9ZoAOVtHq2Pjs_T2w0TMc64axYiU";
-// const BASE_URL = "https://www.googleapis.com/webfonts/v1/webfonts";
-
-// export const fetchFonts = async () => {
-//     const res = await axios.get(`${BASE_URL}?key=${API_KEY}`);
-//     return res.data.items; // Array of fonts
-// };
-// @/services/fonts.api.ts
 import axios from "axios";
 
 const API_KEY = "AIzaSyBVytj9ZoAOVtHq2Pjs_T2w0TMc64axYiU";
